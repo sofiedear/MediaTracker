@@ -1,0 +1,3 @@
+<resources>
+    <dimen name="add_media_record_button_margin">16dp</dimen>
+</resources>
