@@ -34,12 +34,13 @@ class MediaDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media_detail);
 
+        locateViews();
         bindData();
         getIntentData();
         turnOnClickListener();
     }
 
-    private void bindData() {
+    private void locateViews() {
         url = (EditText) findViewById(R.id.url);
         description = (EditText) findViewById(R.id.description);
         title = (EditText) findViewById(R.id.title);
@@ -63,6 +64,12 @@ class MediaDetailActivity extends AppCompatActivity {
         }
     }
 
+    private void bindData() {
+        url.setText(item.url);
+        description.setText(item.description);
+        title.setText(item.title);
+    }
+
     private void turnOnClickListener() {
         save.setOnClickListener(new View.OnClickListener() {
 
@@ -76,6 +83,7 @@ class MediaDetailActivity extends AppCompatActivity {
                 intent.putExtra(mediaExtra, item.toJson().toString());
 
                 startActivity(intent);
+                finish();
             }
         });
     }
