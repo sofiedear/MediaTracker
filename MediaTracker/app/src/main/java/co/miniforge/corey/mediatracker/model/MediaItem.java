@@ -4,8 +4,6 @@ import android.util.Log;
 
 import org.json.JSONObject;
 
-import java.security.MessageDigest;
-
 import co.miniforge.corey.mediatracker.media_store.Md5IdHelper;
 
 /**
