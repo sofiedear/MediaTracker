@@ -6,6 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import co.miniforge.corey.mediatracker.MediaItemDetailActivity;
+import co.miniforge.corey.mediatracker.MyListActivity;
 import co.miniforge.corey.mediatracker.R;
 import co.miniforge.corey.mediatracker.model.MediaItem;
 
@@ -14,7 +16,7 @@ import co.miniforge.corey.mediatracker.model.MediaItem;
  */
 
 public class MediaViewHolder extends RecyclerView.ViewHolder {
-    public static String jsonData;
+    //public static String jsonData;
     TextView mediaName;
     TextView mediaDescription;
 
@@ -45,9 +47,9 @@ public class MediaViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View view) {
                 //TODO: Create a new activity with this object's data
                 //Hint: mediaItem.toJson().toString() && context.startActivity);
-                Intent intent = new Intent(context, MediaDetailActivity.class);
+                Intent intent = new Intent(context.getApplicationContext(), MediaItemDetailActivity.class);
                 String jsonData = mediaItem.toJson().toString();
-                intent.putExtra(jsonData, jsonData);
+                intent.putExtra(MyListActivity.mediaExtra, jsonData);
                 context.startActivity(intent);
             }
         });

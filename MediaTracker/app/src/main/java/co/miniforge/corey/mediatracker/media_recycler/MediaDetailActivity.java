@@ -35,8 +35,8 @@ class MediaDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_media_detail);
 
         locateViews();
-        bindData();
         getIntentData();
+        bindData();
         turnOnClickListener();
     }
 
@@ -49,9 +49,9 @@ class MediaDetailActivity extends AppCompatActivity {
     }
 
     public void getIntentData() {
-        if (getIntent().hasExtra(MediaViewHolder.jsonData)) {
+        if (getIntent().hasExtra(MyListActivity.mediaExtra)) {
             try {
-                jsonData = new JSONObject(MediaViewHolder.jsonData);
+                jsonData = new JSONObject(getIntent().getStringExtra(MyListActivity.mediaExtra));
 
                 item = new MediaItem(jsonData);
 
@@ -83,7 +83,7 @@ class MediaDetailActivity extends AppCompatActivity {
                 intent.putExtra(mediaExtra, item.toJson().toString());
 
                 startActivity(intent);
-                finish();
+                //finish();
             }
         });
     }
