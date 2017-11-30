@@ -4,15 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import org.json.JSONObject;
 
@@ -120,5 +117,16 @@ public class MyListActivity extends AppCompatActivity {
 
         LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext());
         media_list_recycler.setLayoutManager(manager);
+    }
+
+    public void deleteMediaItem(MediaItem item){
+        for(int i = 0; i <mediaItems.size(); i++){
+            if(mediaItems.get(i).id.equals(item.id)){
+                mediaItems.remove(i);
+                break;
+            }
+        }
+        storageUtil.saveMediaData(mediaItems);
+        updateMediaItems(storageUtil.getMediaDataList());
     }
 }

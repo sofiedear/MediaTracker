@@ -8,6 +8,6 @@ import java.io.Serializable;
 
 public enum MediaItemType implements Serializable {
     Generic,
-    Movie,
-    TV
+    TV,
+    Movie
 }
